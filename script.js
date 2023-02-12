@@ -15,8 +15,27 @@ function addBookToLibrary(title, author, pages, status) {
   showBooks();
 }
 
+function showNumbers() {
+  const bookRead = document.querySelector('#total-read');
+  const bookTotal = document.querySelector('#total-books');
+  const bookPages = document.querySelector('#total-pages');
+  let readCount = 0;
+  let pageCount = 0;
+  bookTotal.textContent = ` ${myLibrary.length}`;
+
+  for (i = 0; i < myLibrary.length; i += 1) {
+    if (myLibrary[i].status === true) {
+      readCount += 1;
+    }
+    pageCount += parseInt(myLibrary[i].pages);
+    bookPages.textContent = ` ${pageCount}`;
+    bookRead.textContent = ` ${readCount}`;
+  }
+}
+
 function showBooks() {
   const bookList = document.querySelector('.main-library');
+  showNumbers();
   bookList.textContent = '';
   for (let i = 0; i < myLibrary.length; i++) {
     const bookCard = document.createElement('div');
@@ -85,18 +104,22 @@ function clickEvent() {
       getBookInfo(event);
     } else if (target.classList.contains('remove')) {
       console.log('remove pressed');
-      console.log(book);
       myLibrary.splice(book, 1);
-      console.log(myLibrary);
       showBooks();
     } else if (target.classList.contains('green-btn')) {
       target.classList.remove('green-btn');
       target.classList.add('red-btn');
       target.textContent = 'Not Read';
+      myLibrary[book].status = false;
+      console.log(myLibrary);
+      showNumbers();
     } else if (target.classList.contains('red-btn')) {
       target.classList.remove('red-btn');
       target.classList.add('green-btn');
       target.textContent = 'Read';
+      myLibrary[book].status = true;
+      console.log(myLibrary);
+      showNumbers();
     }
   });
 }
