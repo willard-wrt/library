@@ -72,7 +72,7 @@ font-size: 15px;
 }
 
 .library-title p {
-margin-left: 1px;    
+margin-left: 2px;    
 }
 
 .sidebar h1 { 
@@ -151,12 +151,46 @@ font-size: 20px;
 display: grid;
 margin: 20px;
 gap: 10px;
-grid-template-columns: repeat(auto-fit, 200px);
+grid-template-columns: repeat(auto-fit, 195px);
 }
 
 .book {
 background: rgba(247, 198, 198, 0.5);
 border-radius: 8px;
-width: 200px;
-height: 250px;    
+width: 180px;
+height: 220px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;  
+}
+
+.book p {
+font-size: 18px;
+text-align: center;   
+}
+
+.text-book>p:first-child {
+color: #0c4a6e;    
+font-style: italic; 
+margin-bottom: 8px;   
+}
+
+.button-book {
+display: flex;    
+}
+
+.button-book .green-btn {
+background-color: #86efac;    
+}
+
+.book button {
+padding: 5px;    
+font-size: 18px; 
+background-color: rgb(243, 153, 160);
+border: none;
+border-radius: 5px;
+width: 75px;
+height: 50px;
+margin: 4px;
 }
