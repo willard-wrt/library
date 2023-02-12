@@ -28,6 +28,8 @@ function showBooks() {
     bookCard.appendChild(bookText);
     bookBtn.classList.add('button-book');
     bookCard.appendChild(bookBtn);
+    //  Assign its own index in myLibrary array
+    bookCard.dataset.index = i;
 
     //  Title
     const bookTitle = document.createElement('p');
@@ -52,7 +54,7 @@ function showBooks() {
       bookStatus.classList.add('btn', 'green-btn');
       statusText = 'Read';
     } else {
-      bookStatus.classList.add('btn');
+      bookStatus.classList.add('btn', 'red-btn');
       statusText = 'Not Read';
     }
     bookStatus.textContent = statusText;
@@ -78,8 +80,23 @@ function getBookInfo(event) {
 function clickEvent() {
   document.addEventListener('click', (event) => {
     const { target } = event;
+    const book = target.parentNode.parentNode.dataset.index;
     if (target.id === 'add-book') {
       getBookInfo(event);
+    } else if (target.classList.contains('remove')) {
+      console.log('remove pressed');
+      console.log(book);
+      myLibrary.splice(book, 1);
+      console.log(myLibrary);
+      showBooks();
+    } else if (target.classList.contains('green-btn')) {
+      target.classList.remove('green-btn');
+      target.classList.add('red-btn');
+      target.textContent = 'Not Read';
+    } else if (target.classList.contains('red-btn')) {
+      target.classList.remove('red-btn');
+      target.classList.add('green-btn');
+      target.textContent = 'Read';
     }
   });
 }
