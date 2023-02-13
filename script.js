@@ -49,7 +49,7 @@ function showBooks() {
     bookCard.appendChild(bookText);
     bookBtn.classList.add('button-book');
     bookCard.appendChild(bookBtn);
-    //  Assign its own index in myLibrary array
+    //  Assign its own index from myLibrary array
     bookCard.dataset.index = i;
 
     //  Title
@@ -67,7 +67,7 @@ function showBooks() {
     bookPages.textContent = `${myLibrary[i].pages} pages`;
     bookText.appendChild(bookPages);
 
-    // Status
+    //  Status
     const bookStatus = document.createElement('button');
     let statusText = '';
     console.log(myLibrary[i].status);
@@ -81,7 +81,7 @@ function showBooks() {
     bookStatus.textContent = statusText;
     bookBtn.appendChild(bookStatus);
 
-    // Remove Button
+    //  Remove Button
     const bookRemove = document.createElement('button');
     bookRemove.classList.add('btn', 'remove');
     bookRemove.textContent = 'Remove';
@@ -95,7 +95,24 @@ function getBookInfo(event) {
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const status = document.getElementById('checkbox').checked;
-  addBookToLibrary(title, author, pages, status);
+  const validTitle = document.querySelector('#valid-title');
+  const validAuthor = document.querySelector('#valid-author');
+  const validPages = document.querySelector('#valid-pages');
+  const form = document.querySelector('form');
+  console.log(validTitle);
+  title === ''
+    ? validTitle.classList.add('red')
+    : validTitle.classList.remove('red');
+  author === ''
+    ? validAuthor.classList.add('red')
+    : validAuthor.classList.remove('red');
+  pages === ''
+    ? validPages.classList.add('red')
+    : validPages.classList.remove('red');
+  if (title !== '' && author !== '' && pages > 0) {
+    addBookToLibrary(title, author, pages, status);
+    form.reset();
+  }
 }
 
 function clickEvent() {

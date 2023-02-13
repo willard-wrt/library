@@ -27,8 +27,8 @@
               maxlength="30"
               required
             /><span class="placeholder">What is the title of the book?</span>
-            <div class="validation-box">
-              <p class="validation-text title">Please fill out this field.</p>
+            <div id="valid-title" class="validation-box">
+              <p class="validation-text">Please fill out this field.</p>
             </div>
           </div>
 
@@ -41,8 +41,8 @@
               maxlength="30"
               required
             /><span class="placeholder">Who is the author of the book?</span>
-            <div class="validation-box">
-              <p class="validation-text title">Please fill out this field.</p>
+            <div id="valid-author" class="validation-box">
+              <p class="validation-text">Please fill out this field.</p>
             </div>
           </div>
 
@@ -58,8 +58,8 @@
               min="1"
               required
             /><span class="placeholder">How many pages are in the book?</span>
-            <div class="validation-box">
-              <p class="validation-text title">Please enter a number.</p>
+            <div id="valid-pages" class="validation-box">
+              <p class="validation-text">Please enter a number.</p>
             </div>
           </div>
           <label class="checkbox">
@@ -83,7 +83,7 @@
           </div>
           <div class="nav-list">
             <p>TOTAL PAGES:</p>
-            <p id="total-pages">0</p>
+            <p id="total-pages">0/0</p>
           </div>
         </div>
         <div class="main-library">
@@ -92,6 +92,7 @@
               <p>Dragon Ball #27</p>
               <p>By: Akira Toriyama</p>
               <p>128 pages</p>
+              <p>This is a placeholder and will be automatically removed.</p>
             </div>
             <div class="button-book">
               <button class="btn green-btn">Read</button>
