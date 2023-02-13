@@ -24,6 +24,7 @@
               type="text"
               name="title"
               autocomplete="off"
+              maxlength="30"
               required
             /><span class="placeholder">What is the title of the book?</span>
             <div class="validation-box">
@@ -37,6 +38,7 @@
               type="text"
               name="author"
               autocomplete="off"
+              maxlength="30"
               required
             /><span class="placeholder">Who is the author of the book?</span>
             <div class="validation-box">
@@ -47,9 +49,13 @@
           <div class="input-box">
             <input
               id="pages"
-              type="text"
+              type="number"
               name="pages"
               autocomplete="off"
+              oninput="this.value=this.value.slice(0,this.maxLength)"
+              maxlength="4"
+              max="9999"
+              min="1"
               required
             /><span class="placeholder">How many pages are in the book?</span>
             <div class="validation-box">

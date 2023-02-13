@@ -20,17 +20,19 @@ function showNumbers() {
   const bookTotal = document.querySelector('#total-books');
   const bookPages = document.querySelector('#total-pages');
   let readCount = 0;
+  let readPageCount = 0;
   let pageCount = 0;
   bookTotal.textContent = ` ${myLibrary.length}`;
 
   for (i = 0; i < myLibrary.length; i += 1) {
     if (myLibrary[i].status === true) {
       readCount += 1;
+      readPageCount += parseInt(myLibrary[i].pages);
     }
     pageCount += parseInt(myLibrary[i].pages);
-    bookPages.textContent = ` ${pageCount}`;
-    bookRead.textContent = ` ${readCount}`;
   }
+  bookPages.textContent = ` ${readPageCount}/${pageCount}`;
+  bookRead.textContent = ` ${readCount}`;
 }
 
 function showBooks() {
@@ -105,6 +107,7 @@ function clickEvent() {
     } else if (target.classList.contains('remove')) {
       console.log('remove pressed');
       myLibrary.splice(book, 1);
+      console.log(myLibrary);
       showBooks();
     } else if (target.classList.contains('green-btn')) {
       target.classList.remove('green-btn');

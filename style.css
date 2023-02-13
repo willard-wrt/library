@@ -163,13 +163,21 @@ height: 220px;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
-align-items: center;  
+align-items: center;
 }
 
 .book p {
 font-size: 18px;
-text-align: center;   
+text-align: center;
+overflow: hidden;
+word-wrap: break-word;      
 }
+
+.text-book {
+width: 180px;
+overflow: hidden;   
+}
+
 
 .text-book>p:first-child {
 color: #0c4a6e;    
