@@ -50,6 +50,7 @@ main {
   background-size: 100px 100px;
   background-position: top 15px left;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .toplogo {
@@ -102,6 +103,7 @@ main {
   border: 1px solid #7a4331;
   color: whitesmoke;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .input-box span.placeholder {
@@ -213,3 +215,34 @@ main {
   height: 50px;
   margin: 4px;
 }
+
+button {
+  cursor: pointer;
+}
+
+footer {
+  justify-content: center;
+  display: flex;
+  align-items: center;  
+  margin-bottom: 0px; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  }
+
+  footer p {
+    font-size: 14px;  
+    margin-right: 8px;
+    }
+    
+    .fa.fa-github {
+    color: whitesmoke; 
+    transition: transform 0.3s ease-in-out;
+    }
+    
+    .fa.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+    color: #f43f5e;
+    }
